@@ -1,0 +1,23 @@
+{
+  "name": "slotsync",
+  "version": "1.0.0",
+  "description": "SlotSync - Campus Recruitment & Interview Scheduling Platform (Team TriStack)",
+  "scripts": {
+    "dev:server": "npm run dev --prefix server",
+    "start:server": "npm start --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build:client": "npm run build --prefix client",
+    "seed": "npm run seed --prefix server",
+    "benchmark": "npm run benchmark --prefix server",
+    "test": "npm test --prefix server"
+  },
+  "keywords": [
+    "recruitment",
+    "scheduling",
+    "constraint-satisfaction",
+    "interview-planner",
+    "mern-stack"
+  ],
+  "author": "TriStack (Team ID: 211) - Shreyansh Agrawal, Nipun Gupta, Krishnaraj Singh",
+  "license": "ISC"
+}
