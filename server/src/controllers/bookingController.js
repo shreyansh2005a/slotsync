@@ -195,6 +195,12 @@ const reserveSlot = async (req, res, next) => {
     }
 
     // 3. Independent validation check
+    const interviewerSkills = await InterviewerSkill.find({ interviewerId: { $in: interviewerIds } });
+    const interviewersMap = {};
+    interviewerSkills.forEach(s => {
+      interviewersMap[s.interviewerId.toString()] = { skills: s.skills };
+    });
+
     const singleValidation = validateInterviewAssignment({
       startTime: start,
       endTime: end,
@@ -203,6 +209,7 @@ const reserveSlot = async (req, res, next) => {
     }, {
       drive,
       round,
+      interviewersMap,
       candidateEligibility: eligibility
     });
 

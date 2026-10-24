@@ -94,7 +94,7 @@ function validateInterviewAssignment(interview, context) {
   }
 
   // Constraint 5: Skills qualification check
-  if (context.round?.requiredSkills && context.round.requiredSkills.length > 0) {
+  if (context.round?.requiredSkills && context.round.requiredSkills.length > 0 && context.interviewersMap) {
     const requiredSkills = context.round.requiredSkills.map(s => s.toLowerCase());
     const panelSkills = new Set();
     
