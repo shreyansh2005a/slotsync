@@ -247,27 +247,7 @@ The safe development seed script (`server/scripts/seed.js`) sets up the followin
 
 ---
 
-## 9. 14-Step Mid-Evaluation Demonstration Walkthrough
 
-During the mid-evaluation viva, demonstrate the following complete sequence:
-
-1. **Start frontend and backend**: Ensure MongoDB is running, backend is active on port 5000, and client is active on port 5173.
-2. **Log in as Coordinator**: Use `coordinator@slotsync.io` or click "Coordinator" on the top navigation bar.
-3. **Create a Recruitment Drive**: Navigate to **Recruitment Drives** -> Click **New Recruitment Drive** -> Enter title, date range, working hours, and interval.
-4. **Add Two or More Candidates**: Navigate to **Personnel & Evaluator Directory** -> Candidates tab -> Click **Add Candidate** -> Register new candidates.
-5. **Add Two or More Interviewers**: Navigate to **Interviewers** tab -> Click **Add Interviewer** -> Configure skill tags (e.g. System Design, React) and daily interview caps.
-6. **Create an Interview Room / Venue**: Navigate to **Rooms** -> Click **Add Venue / Room** -> Configure physical capacity or virtual meeting link.
-7. **Configure Skills & Availability**: Check **Availability** -> Verify weekly recurring working hours and out-of-office blocks.
-8. **Generate Proposed Schedule**: Navigate to **Schedule Generator** -> Select the drive & round -> Click **Generate Schedule Proposal**.
-9. **Display Proposed Schedule & Diagnostics**: Inspect scheduled appointments, unassigned candidate diagnostic reasons, and 100% validator pass badge. Click **Export as CSV** to download `schedule.csv`.
-10. **Log in as Candidate**: Use the top bar to switch to **Candidate** (`david.miller@candidate.io` or `elena.rostova@candidate.io`).
-11. **View Eligible Slots & Self-Book**: Open **Book Available Slot** -> System filters slots based on availability and skill constraints -> Candidate selects a feasible slot and confirms.
-12. **Download .ICS Calendar Event**: On booking confirmation, click **Download .ICS Calendar Event** to download the standard RFC 5545 calendar invite.
-13. **Verify Booking on Coordinator Console**: Switch back to Coordinator -> Open **Dashboard** or **Live Calendar** -> See the confirmed appointment and updated KPI stats.
-14. **Attempt Conflicting Booking**: Attempt to book an overlapping slot for the same resource/time -> Re-validation on the backend rejects the request with HTTP `409 Conflict`.
-15. **Verify Persistence**: Refresh the application -> All records, drives, and bookings persist in MongoDB.
-
----
 
 ## 10. Complete REST API Specification
 
@@ -338,14 +318,4 @@ During the mid-evaluation viva, demonstrate the following complete sequence:
 - `PATCH /api/evaluations/reveal/:interviewId` - Unmask blinded reviews *(Coordinator)*
 - `GET /api/evaluations/ranking-matrix/:driveId` - Weighted composite comparison matrix *(Coordinator)*
 
----
 
-## 11. Known Limitations & Roadmap for Final Submission
-
-- **Known Limitations in Mid-Evaluation Scope**:
-  - The current scheduler operates with a greedy MRV heuristic and bounded backtracking up to 500 steps. While optimal for placement drives under 500 candidates, global optimality is not mathematically proven.
-  - Minimal disruption rescheduling reassigns affected panelists; advanced ripple-effect multi-round reassignment across entire branches is slated for the final phase.
-- **Future Roadmap (Post Mid-Evaluation)**:
-  - Google OR-Tools CP-SAT external microservice integration for multi-thousand candidate campus events.
-  - Native Google Calendar & Microsoft Outlook bidirectional OAuth2 calendar sync.
-  - Real-time video room token generation (e.g. Daily.co / Twilio Video).
